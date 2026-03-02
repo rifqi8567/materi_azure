@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/150px-Microsoft_Azure.svg.png" alt="Azure Logo" width="80"/>
+  <img src="https://img.shields.io/badge/☁️-Microsoft%20Azure-0078D4?style=for-the-badge&labelColor=0a0e17&logoColor=white" alt="Azure" height="50"/>
 </p>
 
-<h1 align="center">Azure AI Solutions — Comprehensive Study Guide</h1>
+<h1 align="center">☁️ Azure AI Solutions — Comprehensive Study Guide</h1>
 
 <p align="center">
   <strong>An interactive web-based presentation covering the full lifecycle of AI development on Microsoft Azure</strong>
