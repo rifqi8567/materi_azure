@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure AI Solutions — Rangkuman Kelas</title>
+    <meta name="description" content="Rangkuman lengkap kelas Microsoft Azure AI Solutions — mulai dari perancangan, deployment, hingga evaluasi aplikasi Generative AI.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='58.97' y1='9.46' x2='14.12' y2='90.54' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%233ccbf4'/%3E%3Cstop offset='1' stop-color='%232892df'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23a)' d='M33.34 6.54h26.04L32.69 88.24a4.67 4.67 0 01-4.39 3.08H7.3a4.67 4.67 0 01-4.39-6.28L28.95 9.62a4.67 4.67 0 014.39-3.08z'/%3E%3Cpath fill='%230078d4' d='M71.17 60.26H29.88a2.14 2.14 0 00-1.47 3.7l26.56 24.89a4.71 4.71 0 003.22 1.27h23.44z'/%3E%3Cpath fill='url(%23a)' d='M33.34 6.54a4.63 4.63 0 00-4.42 3.15L2.97 85.04a4.67 4.67 0 004.36 6.28h22.19a4.81 4.81 0 003.92-3.15L41 68.39l17.3 16.21a4.65 4.65 0 003.07 1.27h-.17 23.4L75 60.26H43.61L59.44 6.54z'/%3E%3Cpath opacity='.2' fill='%23fff' d='M62.68 6.54H33.34a4.67 4.67 0 00-4.39 3.08L2.99 85a4.63 4.63 0 00-.39 1.87v2.33a4.67 4.67 0 014.39-4.2h21a4.67 4.67 0 004.39-3.08L59 8.67a4.67 4.67 0 014.39-3.08h-.71z'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <svg class="azure-logo-loader" viewBox="0 0 96 96" width="80" height="80">
+                <defs>
+                    <linearGradient id="grad1" x1="58.97" y1="9.46" x2="14.12" y2="90.54" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#3ccbf4"/>
+                        <stop offset="1" stop-color="#2892df"/>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#grad1)" d="M33.34 6.54h26.04L32.69 88.24a4.67 4.67 0 01-4.39 3.08H7.3a4.67 4.67 0 01-4.39-6.28L28.95 9.62a4.67 4.67 0 014.39-3.08z"/>
+                <path fill="#0078d4" d="M71.17 60.26H29.88a2.14 2.14 0 00-1.47 3.7l26.56 24.89a4.71 4.71 0 003.22 1.27h23.44z"/>
+                <path fill="url(#grad1)" d="M33.34 6.54a4.63 4.63 0 00-4.42 3.15L2.97 85.04a4.67 4.67 0 004.36 6.28h22.19a4.81 4.81 0 003.92-3.15L41 68.39l17.3 16.21a4.65 4.65 0 003.07 1.27h-.17 23.4L75 60.26H43.61L59.44 6.54z"/>
+            </svg>
+            <div class="loader-text">Memuat Presentasi…</div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- Sidebar navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <svg class="sidebar-logo" viewBox="0 0 96 96" width="32" height="32">
+                <defs>
+                    <linearGradient id="grad2" x1="58.97" y1="9.46" x2="14.12" y2="90.54" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#3ccbf4"/>
+                        <stop offset="1" stop-color="#2892df"/>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#grad2)" d="M33.34 6.54h26.04L32.69 88.24a4.67 4.67 0 01-4.39 3.08H7.3a4.67 4.67 0 01-4.39-6.28L28.95 9.62a4.67 4.67 0 014.39-3.08z"/>
+                <path fill="#0078d4" d="M71.17 60.26H29.88a2.14 2.14 0 00-1.47 3.7l26.56 24.89a4.71 4.71 0 003.22 1.27h23.44z"/>
+                <path fill="url(#grad2)" d="M33.34 6.54a4.63 4.63 0 00-4.42 3.15L2.97 85.04a4.67 4.67 0 004.36 6.28h22.19a4.81 4.81 0 003.92-3.15L41 68.39l17.3 16.21a4.65 4.65 0 003.07 1.27h-.17 23.4L75 60.26H43.61L59.44 6.54z"/>
+            </svg>
+            <span class="sidebar-title">Azure AI</span>
+        </div>
+        <ul class="sidebar-nav" id="sidebarNav">
+            <li class="nav-item active" data-slide="0">
+                <span class="nav-num">00</span>
+                <span class="nav-label">Beranda</span>
+            </li>
+            <li class="nav-item" data-slide="1">
+                <span class="nav-num">01</span>
+                <span class="nav-label">Merancang & Mempersiapkan</span>
+            </li>
+            <li class="nav-item" data-slide="2">
+                <span class="nav-num">02</span>
+                <span class="nav-label">Deploy Language Model</span>
+            </li>
+            <li class="nav-item" data-slide="3">
+                <span class="nav-num">03</span>
+                <span class="nav-label">Azure AI Foundry SDK</span>
+            </li>
+            <li class="nav-item" data-slide="4">
+                <span class="nav-num">04</span>
+                <span class="nav-label">Prompt Flow</span>
+            </li>
+            <li class="nav-item" data-slide="5">
+                <span class="nav-num">05</span>
+                <span class="nav-label">Aplikasi RAG</span>
+            </li>
+            <li class="nav-item" data-slide="6">
+                <span class="nav-num">06</span>
+                <span class="nav-label">Fine-tuning Model</span>
+            </li>
+            <li class="nav-item" data-slide="7">
+                <span class="nav-num">07</span>
+                <span class="nav-label">Responsible AI</span>
+            </li>
+            <li class="nav-item" data-slide="8">
+                <span class="nav-num">08</span>
+                <span class="nav-label">Evaluasi Performa</span>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="progress-info">
+                <span id="slideCounter">1 / 9</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <!-- Slide controls -->
+    <div class="slide-controls">
+        <button class="ctrl-btn" id="prevBtn" aria-label="Previous slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="ctrl-btn" id="nextBtn" aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+    </div>
+
+    <!-- ==================== SLIDES ==================== -->
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- SLIDE 0: BERANDA -->
+        <section class="slide active" data-index="0">
+            <div class="slide-bg hero-bg">
+                <div class="particle-field" id="particleField"></div>
+            </div>
+            <div class="slide-content hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 96 96" width="48" height="48">
+                        <defs><linearGradient id="grad3" x1="58.97" y1="9.46" x2="14.12" y2="90.54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3ccbf4"/><stop offset="1" stop-color="#2892df"/></linearGradient></defs>
+                        <path fill="url(#grad3)" d="M33.34 6.54h26.04L32.69 88.24a4.67 4.67 0 01-4.39 3.08H7.3a4.67 4.67 0 01-4.39-6.28L28.95 9.62a4.67 4.67 0 014.39-3.08z"/>
+                        <path fill="#0078d4" d="M71.17 60.26H29.88a2.14 2.14 0 00-1.47 3.7l26.56 24.89a4.71 4.71 0 003.22 1.27h23.44z"/>
+                        <path fill="url(#grad3)" d="M33.34 6.54a4.63 4.63 0 00-4.42 3.15L2.97 85.04a4.67 4.67 0 004.36 6.28h22.19a4.81 4.81 0 003.92-3.15L41 68.39l17.3 16.21a4.65 4.65 0 003.07 1.27h-.17 23.4L75 60.26H43.61L59.44 6.54z"/>
+                    </svg>
+                    <span>Microsoft Azure</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="line">Rangkuman Kelas</span>
+                    <span class="line gradient-text">Azure AI Solutions</span>
+                </h1>
+                <p class="hero-subtitle">Pengembangan Solusi AI di Azure — dari Perancangan, Deployment, RAG, Fine-tuning, hingga Evaluasi &amp; Responsible AI</p>
+                <div class="hero-modules">
+                    <div class="module-chip" data-slide="1"><span class="chip-icon">🏗️</span> Perancangan</div>
+                    <div class="module-chip" data-slide="2"><span class="chip-icon">🚀</span> Deploy Model</div>
+                    <div class="module-chip" data-slide="3"><span class="chip-icon">🧰</span> SDK</div>
+                    <div class="module-chip" data-slide="4"><span class="chip-icon">🔄</span> Prompt Flow</div>
+                    <div class="module-chip" data-slide="5"><span class="chip-icon">📚</span> RAG</div>
+                    <div class="module-chip" data-slide="6"><span class="chip-icon">🎯</span> Fine-tuning</div>
+                    <div class="module-chip" data-slide="7"><span class="chip-icon">🛡️</span> Responsible AI</div>
+                    <div class="module-chip" data-slide="8"><span class="chip-icon">📊</span> Evaluasi</div>
+                </div>
+                <button class="hero-cta" id="startBtn">
+                    Mulai Presentasi
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- SLIDE 1: Merancang & Mempersiapkan -->
+        <section class="slide" data-index="1">
+            <div class="slide-bg gradient-bg-1"></div>
+            <div class="slide-content">
+                <div class="slide-header">
+                    <span class="slide-number">01</span>
+                    <span class="slide-tag">Modul 1</span>
+                </div>
+                <h2 class="slide-title">Merancang & Mempersiapkan<br><span class="highlight">Pengembangan AI Solution</span></h2>
+                <div class="content-grid two-col">
+                    <div class="content-card glass">
+                        <div class="card-icon">🎯</div>
+                        <h3>3 Pertimbangan Utama</h3>
+                        <ul>
+                            <li><strong>Kemampuan Teknis</strong> — Memilih layanan yang tepat sesuai kebutuhan</li>
+                            <li><strong>Biaya & Ketersediaan</strong> — Perhitungan biaya & ketersediaan layanan di region tertentu</li>
+                            <li><strong>Kepatuhan & Keamanan</strong> — Penerapan prinsip Responsible AI</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">☁️</div>
+                        <h3>Ekosistem Azure AI</h3>
+                        <ul>
+                            <li><strong>Azure AI Services</strong> — OpenAI, Vision, Speech, Document Intelligence</li>
+                            <li><strong>Azure AI Foundry</strong> — Platform untuk membangun, mengelola & mengamankan proyek AI</li>
+                            <li><strong>Tools</strong> — SDK, API, VS Code, GitHub Copilot</li>
+                            <li><strong>Integrasi</strong> — Microsoft 365, Dynamics 365, Azure AI Studio</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-grid two-col" style="margin-top:20px;">
+                    <div class="content-card glass">
+                        <div class="card-icon">🧠</div>
+                        <h3>Update Layanan Azure AI (2024–2025)</h3>
+                        <ul>
+                            <li><strong>Azure OpenAI</strong> — GPT-4o (multimodal, teks+gambar), GPT-4o-mini, dan rencana GPT-5 series</li>
+                            <li><strong>Azure AI Vision</strong> — Custom Vision, multimodal embeddings, dan spatial understanding</li>
+                            <li><strong>Azure AI Speech</strong> — Personal Voice (GA), Voice Live API, Photo Avatar, 400+ voice di 40 bahasa</li>
+                            <li><strong>Document Intelligence</strong> — Layout model, custom extraction, Content Understanding (multimodal: teks, gambar, audio, video)</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">⚡</div>
+                        <h3>Kekuatan Inti AI & 6 Prinsip Responsible AI</h3>
+                        <div class="tags-row">
+                            <span class="tag blue">Generative AI</span>
+                            <span class="tag blue">NLP</span>
+                            <span class="tag blue">Computer Vision</span>
+                            <span class="tag blue">Speech</span>
+                            <span class="tag blue">Decision Support</span>
+                        </div>
+                        <div class="tags-row" style="margin-top:8px;">
+                            <span class="tag green">Keadilan</span>
+                            <span class="tag green">Keandalan</span>
+                            <span class="tag green">Privasi</span>
+                            <span class="tag green">Inklusivitas</span>
+                            <span class="tag green">Transparansi</span>
+                            <span class="tag green">Akuntabilitas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Deploy Language Model -->
+        <section class="slide" data-index="2">
+            <div class="slide-bg gradient-bg-2"></div>
+            <div class="slide-content">
+                <div class="slide-header">
+                    <span class="slide-number">02</span>
+                    <span class="slide-tag">Modul 2</span>
+                </div>
+                <h2 class="slide-title">Memilih & Deploy<br><span class="highlight">Language Model di Azure AI Foundry</span></h2>
+                <div class="content-grid three-col">
+                    <div class="content-card glass">
+                        <div class="card-icon">🔍</div>
+                        <h3>Model Catalog (11,000+ Model)</h3>
+                        <ul>
+                            <li>Azure OpenAI, Meta Llama, Phi, Mistral, DeepSeek, Cohere, NVIDIA</li>
+                            <li><strong>LLM</strong> — GPT-4o, GPT-4, Llama 3.1 405B</li>
+                            <li><strong>SLM</strong> — Phi-3-mini, Phi-3-vision (multimodal), Llama 3.1 8B</li>
+                            <li>Model reasoning, embedding, image generation, time-series</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">🚀</div>
+                        <h3>Deployment Options</h3>
+                        <ul>
+                            <li><strong>Standard</strong> — Pay-per-call, cocok untuk dev & produksi moderat</li>
+                            <li><strong>Provisioned</strong> — Reserved capacity, throughput tinggi</li>
+                            <li><strong>Serverless API</strong> — Dedicated endpoint managed by Microsoft</li>
+                            <li><strong>Managed Compute</strong> — Open/custom model, VM-based</li>
+                            <li><strong>Batch</strong> — Hemat 50%, async processing (24 jam)</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">🧠</div>
+                        <h3>3 Pertanyaan Kunci</h3>
+                        <ol>
+                            <li>Dapatkah AI memecahkan use case saya?</li>
+                            <li>Bagaimana memilih model terbaik? (task type, presisi, openness)</li>
+                            <li>Bisakah solusi diskalakan? (monitoring, model lifecycle)</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="content-grid two-col" style="margin-top:20px;">
+                    <div class="content-card glass">
+                        <div class="card-icon">✨</div>
+                        <h3>Prompt Engineering Patterns</h3>
+                        <div class="tags-row">
+                            <span class="tag purple">Persona Pattern</span>
+                            <span class="tag purple">Template Format</span>
+                            <span class="tag purple">Chain-of-Thought</span>
+                            <span class="tag purple">System Prompt</span>
+                            <span class="tag purple">Konteks Tambahan</span>
+                        </div>
+                        <p style="margin-top:10px;font-size:0.85rem;color:var(--text-secondary);">System prompt menetapkan perilaku model secara konsisten tanpa diketahui pengguna akhir</p>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">🏗️</div>
+                        <h3>Arsitektur Transformer</h3>
+                        <ul>
+                            <li>Fondasi utama Generative AI — <em>"Attention is All You Need"</em> (Vaswani dkk., 2017)</li>
+                            <li>Self-attention mechanism memungkinkan model memahami konteks panjang</li>
+                            <li>Digunakan oleh GPT, Llama, Phi, dan hampir semua model LLM modern</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Azure AI Foundry SDK -->
+        <section class="slide" data-index="3">
+            <div class="slide-bg gradient-bg-3"></div>
+            <div class="slide-content">
+                <div class="slide-header">
+                    <span class="slide-number">03</span>
+                    <span class="slide-tag">Modul 3</span>
+                </div>
+                <h2 class="slide-title">Mengembangkan Aplikasi AI<br><span class="highlight">dengan Azure AI Foundry SDK</span></h2>
+                <div class="content-grid two-col">
+                    <div class="content-card glass">
+                        <div class="card-icon">🧰</div>
+                        <h3>Apa itu SDK?</h3>
+                        <ul>
+                            <li>Menyatukan berbagai layanan AI dalam satu akses programmatic</li>
+                            <li>Mendukung <strong>Python</strong>, <strong>.NET</strong>, <strong>JavaScript</strong> + REST API</li>
+                            <li><strong>AIProjectClient</strong> — class utama koneksi ke proyek</li>
+                            <li>Otentikasi via <code>DefaultAzureCredential</code> / <code>az login</code></li>
+                            <li>Sync & async operations didukung</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">🔗</div>
+                        <h3>Connections</h3>
+                        <ul>
+                            <li><strong>Resource/Hub</strong> — Koneksi induk multi-proyek</li>
+                            <li><strong>Project</strong> — Koneksi spesifik proyek</li>
+                            <li><code>connections.list()</code> — Daftar semua koneksi</li>
+                            <li><code>connections.get(name, include_credentials)</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-grid two-col" style="margin-top:20px;">
+                    <div class="content-card glass">
+                        <div class="card-icon">🤖</div>
+                        <h3>Kapabilitas Tambahan SDK</h3>
+                        <ul>
+                            <li><strong>Agent Management</strong> — Buat, jalankan, dan versioning AI agents</li>
+                            <li><strong>Tools:</strong> Code Interpreter, Azure AI Search, Bing Grounding, File Search, Function Tool, Image Gen</li>
+                            <li><strong>Dataset Management</strong> — Upload dokumen, buat dataset</li>
+                            <li><strong>Search Index</strong> — Buat & enumerate search indexes</li>
+                            <li><strong>Evaluation</strong> — Red-team tests & evaluation rules</li>
+                            <li><strong>Fine-tuning</strong> — Model tuning dari kode</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass code-showcase">
+                        <div class="card-icon">💬</div>
+                        <h3>Membangun AI Chat Client</h3>
+                        <div class="code-block">
+                            <div class="code-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span> Python</div>
+                            <pre><code><span class="kw">from</span> azure.ai.projects <span class="kw">import</span> AIProjectClient
+<span class="kw">from</span> azure.identity <span class="kw">import</span> DefaultAzureCredential
+
+client = AIProjectClient(
+    endpoint=<span class="str">"https://&lt;project&gt;.api.azureml.ms"</span>,
+    credential=DefaultAzureCredential()
+)
+chat = client.<span class="fn">get_openai_client</span>()
+response = chat.chat.completions.<span class="fn">create</span>(
+    model=<span class="str">"gpt-4o"</span>,
+    messages=[
+        {<span class="str">"role"</span>: <span class="str">"system"</span>, <span class="str">"content"</span>: <span class="str">"Kamu adalah asisten."</span>},
+        {<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: prompt}
+    ]
+)
+<span class="kw">print</span>(response.choices[0].message.content)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Prompt Flow -->
+        <section class="slide" data-index="4">
+            <div class="slide-bg gradient-bg-4"></div>
+            <div class="slide-content">
+                <div class="slide-header">
+                    <span class="slide-number">04</span>
+                    <span class="slide-tag">Modul 4</span>
+                </div>
+                <h2 class="slide-title">Prompt Flow<br><span class="highlight">Pengembangan Aplikasi AI</span></h2>
+                <div class="content-card glass full-width">
+                    <div class="card-icon">🔄</div>
+                    <h3>Siklus Pengembangan Aplikasi LLM</h3>
+                    <div class="flow-diagram">
+                        <div class="flow-step"><span class="flow-num">1</span> Inisialisasi</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step"><span class="flow-num">2</span> Eksperimen</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step"><span class="flow-num">3</span> Evaluasi</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step"><span class="flow-num">4</span> Produksi</div>
+                    </div>
+                </div>
+                <div class="content-grid two-col" style="margin-top:20px;">
+                    <div class="content-card glass">
+                        <div class="card-icon">📐</div>
+                        <h3>Jenis Flow</h3>
+                        <div class="component-list">
+                            <div class="component-item">
+                                <span class="comp-icon">📊</span>
+                                <div><strong>DAG Flow</strong><br>Visualisasi pipeline directed acyclic graph (<code>flow.dag.yaml</code>)</div>
+                            </div>
+                            <div class="component-item">
+                                <span class="comp-icon">⚙️</span>
+                                <div><strong>Standard Flow</strong><br>Umum & fleksibel untuk berbagai domain LLM</div>
+                            </div>
+                            <div class="component-item">
+                                <span class="comp-icon">💬</span>
+                                <div><strong>Chat Flow</strong><br>Khusus percakapan — chat input/output + history</div>
+                            </div>
+                            <div class="component-item">
+                                <span class="comp-icon">📏</span>
+                                <div><strong>Evaluation Flow</strong><br>Menilai performa: accuracy, relevance, coherence, groundedness</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">🛠️</div>
+                        <h3>Komponen & Tools</h3>
+                        <div class="component-list">
+                            <div class="component-item">
+                                <span class="comp-icon">📥</span>
+                                <div><strong>Inputs</strong> — Data masukan untuk alur kerja</div>
+                            </div>
+                            <div class="component-item">
+                                <span class="comp-icon">🔧</span>
+                                <div><strong>Nodes</strong> — Unit pemrosesan (LLM, Python, Embedding)</div>
+                            </div>
+                            <div class="component-item">
+                                <span class="comp-icon">📤</span>
+                                <div><strong>Outputs</strong> — Hasil akhir dari alur kerja</div>
+                            </div>
+                        </div>
+                        <h4 style="margin-top:14px;font-size:0.9rem;color:var(--azure-light);">Tools Bawaan:</h4>
+                        <div class="tags-row" style="margin-top:6px;">
+                            <span class="tag blue">Python Tool</span>
+                            <span class="tag blue">LLM Tool</span>
+                            <span class="tag blue">Embedding Tool</span>
+                            <span class="tag blue">Serp API</span>
+                            <span class="tag blue">Content Safety</span>
+                            <span class="tag blue">Custom Tools</span>
+                        </div>
+                        <p style="margin-top:10px;font-size:0.82rem;color:var(--text-secondary);">✨ Drag-and-drop interface, prompt variants, conditional control, dan integrasi RBAC enterprise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: RAG -->
+        <section class="slide" data-index="5">
+            <div class="slide-bg gradient-bg-5"></div>
+            <div class="slide-content">
+                <div class="slide-header">
+                    <span class="slide-number">05</span>
+                    <span class="slide-tag">Modul 5</span>
+                </div>
+                <h2 class="slide-title">Aplikasi RAG<br><span class="highlight">Retrieval Augmented Generation</span></h2>
+                <div class="rag-flow">
+                    <div class="rag-step">
+                        <div class="rag-icon">📥</div>
+                        <h4>Retrieve</h4>
+                        <p>Ambil data relevan dari Azure AI Search</p>
+                    </div>
+                    <div class="rag-connector">
+                        <svg width="60" height="24"><path d="M0 12 H60" stroke="#3ccbf4" stroke-width="2" stroke-dasharray="5,5"/><polygon points="55,7 60,12 55,17" fill="#3ccbf4"/></svg>
+                    </div>
+                    <div class="rag-step">
+                        <div class="rag-icon">📝</div>
+                        <h4>Augment</h4>
+                        <p>Augmentasi prompt dengan konteks data</p>
+                    </div>
+                    <div class="rag-connector">
+                        <svg width="60" height="24"><path d="M0 12 H60" stroke="#3ccbf4" stroke-width="2" stroke-dasharray="5,5"/><polygon points="55,7 60,12 55,17" fill="#3ccbf4"/></svg>
+                    </div>
+                    <div class="rag-step">
+                        <div class="rag-icon">🤖</div>
+                        <h4>Generate</h4>
+                        <p>Hasilkan respons yang faktual & grounded</p>
+                    </div>
+                </div>
+                <div class="content-grid three-col" style="margin-top:24px;">
+                    <div class="content-card glass">
+                        <div class="card-icon">🔎</div>
+                        <h3>Jenis Pencarian</h3>
+                        <div class="search-types">
+                            <div class="search-item"><span class="badge">Keyword</span> Full-text BM25</div>
+                            <div class="search-item"><span class="badge">Semantic</span> Deep learning re-ranking</div>
+                            <div class="search-item"><span class="badge">Vector</span> Embedding + cosine similarity (HNSW)</div>
+                            <div class="search-item"><span class="badge best">Hybrid ⭐</span> Keyword + Vector + RRF fusion</div>
+                        </div>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">📦</div>
+                        <h3>Chunking & Embedding</h3>
+                        <ul>
+                            <li><strong>Text Split Skill</strong> — Chunk berdasarkan halaman, kalimat, atau token</li>
+                            <li><strong>Document Layout Skill</strong> — Chunk semantik berdasarkan struktur dokumen</li>
+                            <li><strong>Embedding Models</strong> — text-embedding-3-small/large, ada-002</li>
+                            <li><strong>Binary Vector</strong> — Hemat 32x storage</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">⚡</div>
+                        <h3>Implementasi di Azure</h3>
+                        <ul>
+                            <li>Azure AI Search untuk indexing & retrieval</li>
+                            <li>Integrated vectorization pipeline</li>
+                            <li>Semantic ranking (captions & answers)</li>
+                            <li><strong>Agentic Retrieval</strong> (preview) — LLM-assisted query planning, subqueries paralel</li>
+                            <li>Azure OpenAI SDK untuk chat + index</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Fine-tuning -->
+        <section class="slide" data-index="6">
+            <div class="slide-bg gradient-bg-6"></div>
+            <div class="slide-content">
+                <div class="slide-header">
+                    <span class="slide-number">06</span>
+                    <span class="slide-tag">Modul 6</span>
+                </div>
+                <h2 class="slide-title">Fine-tuning Model<br><span class="highlight">Azure AI Foundry</span></h2>
+                <div class="content-grid two-col">
+                    <div class="content-card glass">
+                        <div class="card-icon">🎯</div>
+                        <h3>RAG vs Fine-tuning</h3>
+                        <table class="comparison-table">
+                            <thead><tr><th></th><th>RAG</th><th>Fine-tuning</th></tr></thead>
+                            <tbody>
+                                <tr><td>Tujuan</td><td>Data faktual real-time</td><td>Konsistensi gaya & format</td></tr>
+                                <tr><td>Data</td><td>Eksternal, dinamis</td><td>Training dataset (JSONL)</td></tr>
+                                <tr><td>Kapan?</td><td>Data sering berubah</td><td>Brand voice spesifik</td></tr>
+                                <tr><td>Teknik</td><td>Index + retrieval</td><td>SFT (LoRA otomatis)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">📋</div>
+                        <h3>Data Percakapan (JSONL)</h3>
+                        <div class="code-block small">
+                            <div class="code-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span> JSONL</div>
+                            <pre><code>{<span class="str">"messages"</span>: [
+  {<span class="str">"role"</span>: <span class="str">"system"</span>, <span class="str">"content"</span>: <span class="str">"Aturan main..."</span>},
+  {<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Pertanyaan..."</span>},
+  {<span class="str">"role"</span>: <span class="str">"assistant"</span>, <span class="str">"content"</span>: <span class="str">"Jawaban ideal..."</span>,
+   <span class="str">"weight"</span>: 1}
+]}</code></pre>
+                        </div>
+                        <p style="margin-top:8px;font-size:0.82rem;color:var(--text-secondary);"><strong>weight=1</strong> dilatih, <strong>weight=0</strong> hanya konteks. Anonimkan data sensitif!</p>
+                    </div>
+                </div>
+                <div class="content-grid two-col" style="margin-top:20px;">
+                    <div class="content-card glass">
+                        <div class="card-icon">⚙️</div>
+                        <h3>Hyperparameter & Teknik</h3>
+                        <div class="tags-row">
+                            <span class="tag orange">batch_size</span>
+                            <span class="tag orange">learning_rate_multiplier (0.5–2)</span>
+                            <span class="tag orange">n_epochs</span>
+                            <span class="tag orange">seed</span>
+                        </div>
+                        <ul style="margin-top:10px;">
+                            <li><strong>LoRA</strong> — Low-Rank Adaptation, otomatis diterapkan untuk efisiensi</li>
+                            <li><strong>SFT</strong> — Supervised Fine-Tuning, cocok untuk domain specialization</li>
+                            <li><strong>RFT</strong> (baru) — Reinforcement Fine-Tuning untuk model terbaru</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">📊</div>
+                        <h3>Langkah & Evaluasi</h3>
+                        <ol>
+                            <li>Pilih base model dari katalog</li>
+                            <li>Upload training + validation dataset</li>
+                            <li>Konfigurasi hyperparameter</li>
+                            <li>Submit job → Monitor loss function</li>
+                            <li>Evaluasi: <strong>Token Accuracy</strong>, relevance, semantic similarity</li>
+                            <li>Deploy & integrasikan via API</li>
+                        </ol>
+                        <p style="margin-top:6px;font-size:0.82rem;color:var(--text-secondary);">💡 Start small, iterate — pantau loss plateau, atur budget alerts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Responsible AI -->
+        <section class="slide" data-index="7">
+            <div class="slide-bg gradient-bg-7"></div>
+            <div class="slide-content">
+                <div class="slide-header">
+                    <span class="slide-number">07</span>
+                    <span class="slide-tag">Modul 7</span>
+                </div>
+                <h2 class="slide-title">Responsible<br><span class="highlight">Generative AI</span></h2>
+                <div class="four-m-grid">
+                    <div class="m-card glass">
+                        <div class="m-badge">M1</div>
+                        <h4>Map</h4>
+                        <p>Identifikasi & prioritasi bahaya: bias, halusinasi, konten ilegal. Red Team Testing dengan prompt ekstrem.</p>
+                    </div>
+                    <div class="m-card glass">
+                        <div class="m-badge">M2</div>
+                        <h4>Measure</h4>
+                        <p>Uji dengan prompt beragam. Buat baseline. Metrik evaluasi konsisten — manual & otomatis.</p>
+                    </div>
+                    <div class="m-card glass">
+                        <div class="m-badge">M3</div>
+                        <h4>Mitigate</h4>
+                        <p>4 layer: Model, Safety System, Grounding + System Message, UX Layer. Proses berkelanjutan.</p>
+                    </div>
+                    <div class="m-card glass">
+                        <div class="m-badge">M4</div>
+                        <h4>Manage</h4>
+                        <p>Legal, Privacy, Security review. Peluncuran bertahap, rollback plan, telemetry & audit trail.</p>
+                    </div>
+                </div>
+                <div class="content-grid two-col" style="margin-top:20px;">
+                    <div class="content-card glass">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Fitur Azure AI Content Safety</h3>
+                        <div class="tags-row">
+                            <span class="tag red">Prompt Shields</span>
+                            <span class="tag red">Groundedness Detection</span>
+                            <span class="tag red">Protected Material</span>
+                            <span class="tag red">Content Filters</span>
+                            <span class="tag red">Custom Categories</span>
+                        </div>
+                        <ul style="margin-top:10px;">
+                            <li><strong>Prompt Shields</strong> — Anti prompt injection (direct & indirect), fitur <em>Spotlighting</em> (2025) untuk deteksi input untrusted</li>
+                            <li><strong>Groundedness Detection</strong> — Cek akurasi output terhadap sumber, mode Reasoning & Non-Reasoning, auto-correction</li>
+                            <li><strong>Content Filters</strong> — Deteksi violence, hate, sexual, self-harm + multimodal analysis (2024)</li>
+                        </ul>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">🔒</div>
+                        <h3>Strategi Mitigasi Berlapis</h3>
+                        <div class="component-list">
+                            <div class="component-item">
+                                <span class="comp-icon">🧠</span>
+                                <div><strong>Model Layer</strong> — Pilih model sesuai & fine-tune untuk kurangi risiko</div>
+                            </div>
+                            <div class="component-item">
+                                <span class="comp-icon">🛡️</span>
+                                <div><strong>Safety System Layer</strong> — Content filters, abuse detection algorithms, alerts</div>
+                            </div>
+                            <div class="component-item">
+                                <span class="comp-icon">📝</span>
+                                <div><strong>Grounding Layer</strong> — System message, RAG, data terpercaya</div>
+                            </div>
+                            <div class="component-item">
+                                <span class="comp-icon">👤</span>
+                                <div><strong>UX Layer</strong> — Input validation, disclaimer, batasan kapabilitas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: Evaluasi -->
+        <section class="slide" data-index="8">
+            <div class="slide-bg gradient-bg-8"></div>
+            <div class="slide-content">
+                <div class="slide-header">
+                    <span class="slide-number">08</span>
+                    <span class="slide-tag">Modul 8</span>
+                </div>
+                <h2 class="slide-title">Evaluasi Performa<br><span class="highlight">Aplikasi Generative AI</span></h2>
+                <div class="content-grid three-col">
+                    <div class="content-card glass">
+                        <div class="card-icon">📏</div>
+                        <h3>AI-Assisted Metrics</h3>
+                        <ul>
+                            <li><strong>Coherence</strong> — Keterpaduan & logical flow</li>
+                            <li><strong>Relevance</strong> — Kesesuaian jawaban</li>
+                            <li><strong>Fluency</strong> — Kelancaran bahasa</li>
+                            <li><strong>Groundedness</strong> — Apakah output berbasis sumber?</li>
+                            <li><strong>GPT Similarity</strong> — Kesamaan semantik</li>
+                        </ul>
+                        <p style="margin-top:8px;font-size:0.82rem;color:var(--text-secondary);">GPT-4o sebagai "AI Judge" untuk scoring otomatis</p>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">🔢</div>
+                        <h3>NLP / Mathematical Metrics</h3>
+                        <ul>
+                            <li><strong>BLEU</strong> — N-gram overlap (bilingual evaluation)</li>
+                            <li><strong>ROUGE</strong> — Recall-oriented (ROUGE-1, ROUGE-L)</li>
+                            <li><strong>METEOR</strong> — Synonym-aware matching</li>
+                            <li><strong>GLEU</strong> — Generalized BLEU</li>
+                            <li><strong>F1-Score</strong> — Precision × Recall balance</li>
+                        </ul>
+                        <p style="margin-top:8px;font-size:0.82rem;color:var(--text-secondary);">Tersedia via Azure AI Evaluation SDK (2024)</p>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Safety Evaluation</h3>
+                        <ul>
+                            <li><strong>Hate & Unfairness</strong> detection</li>
+                            <li><strong>Violence</strong> content scoring</li>
+                            <li><strong>Sexual</strong> content detection</li>
+                            <li><strong>Self-harm</strong> risk scoring</li>
+                            <li><strong>Protected Material</strong> detection</li>
+                            <li><strong>Indirect Attacks</strong> evaluation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-grid two-col" style="margin-top:20px;">
+                    <div class="content-card glass">
+                        <div class="card-icon">🧑‍💻</div>
+                        <h3>Evaluasi Manual vs Otomatis</h3>
+                        <table class="comparison-table">
+                            <thead><tr><th></th><th>Manual</th><th>Otomatis</th></tr></thead>
+                            <tbody>
+                                <tr><td>Pelaku</td><td>Manusia / reviewer</td><td>AI Judge (GPT-4o)</td></tr>
+                                <tr><td>Skala</td><td>Kecil (quality check)</td><td>Besar (batch evaluation)</td></tr>
+                                <tr><td>Tool</td><td>Chat Playground</td><td>Evaluation SDK / Portal</td></tr>
+                                <tr><td>Output</td><td>Skor subjektif + feedback</td><td>Metrik + risk scoring</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content-card glass">
+                        <div class="card-icon">📊</div>
+                        <h3>Analisis & Rekomendasi</h3>
+                        <ul>
+                            <li>Bandingkan model: <strong>gpt-4o</strong> vs <strong>gpt-4o-mini</strong> vs <strong>Phi-3</strong></li>
+                            <li>Gunakan <strong>Model Safety Leaderboard</strong> — quality, safety, cost, performance</li>
+                            <li>Evaluasi iteratif: setiap kali ganti model / update prompt, re-evaluate!</li>
+                            <li>Rekomendasikan model terbaik berdasarkan skor gabungan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Keyboard shortcut hint -->
+    <div class="keyboard-hint" id="keyboardHint">
+        Gunakan <kbd>←</kbd> <kbd>→</kbd> atau <kbd>Space</kbd> untuk navigasi
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
