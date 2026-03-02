@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/☁️-Microsoft%20Azure-0078D4?style=for-the-badge&labelColor=0a0e17&logoColor=white" alt="Azure" height="50"/>
+  <img src="image.png" alt="Azure Logo" width="120"/>
 </p>
 
 <h1 align="center">☁️ Azure AI Solutions — Comprehensive Study Guide</h1>
